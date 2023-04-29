@@ -1,0 +1,497 @@
+@import url(https://fonts.googleapis.com/css2?family=Monoton&display=swap);
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    font-size: calc(25*var(--res));;
+    font-family: sans-serif;
+}
+
+html {
+    --res: calc(0.01 * 10vmin);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #2a2a2c;
+}
+
+nav#slide {
+    z-index: 999;
+    height: 100vh;
+    width: 60vw;
+    position: fixed;
+    background: #00000085;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    border-radius: 10px;
+}
+
+nav#slide.enable {
+    opacity: 1;
+    transform: translateX(0);
+    transition: .5s all ease-in-out;
+}
+
+nav#slide.disable {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: .5s all ease-in-out;
+}
+
+nav#slide a {
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+nav#slide a::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    transform: scale(0);
+}
+
+nav#slide a:hover::after {
+    transform: scale(1);
+    transition: .3s all ease-in-out;
+}
+
+button {
+    z-index: 99999;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    outline: none;
+    border: 1px solid #fff;
+    background: #000;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    font-size: 50px;
+    border-radius: 50%;
+}
+
+button:active {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    transition: .2s all ease-in-out;
+}
+
+button.enable {
+    transform: rotate(-45deg);
+    transition: .5s all ease-in-out;
+}
+
+button.disable {
+    transform: rotate(0);
+    transition: .5s all ease-in-out;
+}
+
+a {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav.menu {
+    z-index: 998;
+    position: fixed;
+    width: 100vw;
+}
+
+nav.menu ul li {
+    list-style-type: none;
+    width: 33.333333333333%;
+    min-height: 27px;
+    max-height: 27px;
+    text-align: center;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #272727;
+    font-size: calc(25 * var(--res));
+}
+
+nav.menu ul li ul {
+    width: 100%;
+    z-index: 9999;
+    position: absolute;
+    background: #fff;
+}
+
+nav.menu ul li ul li {
+    display: none;
+    width: 100%;
+    text-align: center;
+    font-size: calc(25 * var(--res));
+    padding-top: 20px;
+}
+
+nav.menu ul li ul li a,
+nav.menu ul li,
+nav.menu ul li a {
+    color: #fff;
+    font-size: calc(25 * var(--res));
+}
+  
+nav.menu ul li:hover ul li {
+    display: block;
+}
+  
+nav.menu ul li.btn ul li:hover a {
+    color: #fff;
+}
+
+nav.menu ul li.btn:hover a,
+nav.menu ul li.btn:hover {
+    color: #9c9c9c;
+}
+
+header {
+    overflow: hidden;
+    min-height: 80vh;
+    background: #1c1c1e;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0px 0px 50px 50px;
+}
+
+header div.titlecontent {
+    display: wrap;
+    flex-wrap: row;
+}
+
+header div.titlecontent span.title {
+    margin: 10px;
+    font-family: 'Monoton', sans-serif;
+    animation: colored 2s infinite alternate;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: calc(100 * var(--res));
+}
+
+header span.explain {
+    color: #fff;
+}
+
+header span.explain::after {
+    content: "|";
+    animation: cursor 0.6s alternate-reverse infinite;
+}
+
+section#biography {
+    background: #1c1c1e;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+section#biography div#content {
+    padding: 20px;
+}
+
+section#biography div#content img {
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 20px;
+    float: left;
+    height: calc(274*var(--res));
+    width: calc(274*var(--res));
+    shape-outside: circle();
+    position: relative;
+    z-index: 1; 
+}
+
+
+section#biography div#content img::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        background: #ff0000;
+        opacity: 0.5;
+        z-index: 2;
+        margin: auto;
+        height: calc(274*var(--res));
+        width: calc(274*var(--res));
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+}
+
+section#biography div#content span {
+    shape-outside: circle();
+}
+
+.subtitle {
+    color: #fff;
+    font-family: 'Monoton', sans-serif;
+    font-size: calc(75*var(--res));
+    text-decoration: underline;
+    padding: 20px;
+}
+
+section#language {
+    overflow: hidden;
+    min-height: 10vh;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: auto;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+section#language img {
+    animation: fall 5s infinite alternate ease-in-out;
+    animation-delay: 0.3s;
+    margin: 15px;
+    padding: 15px;
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+    background: #1c1c1e;
+    border-radius: 5px;
+}
+
+section#language img.lang:nth-child(1) {
+    animation-delay: 0.10s;
+} section#language img.lang:nth-child(2) {
+    animation-delay: 0.20s;
+} section#language img.lang:nth-child(3) {
+    animation-delay: 0.30s;
+} section#language img.lang:nth-child(4) {
+    animation-delay: 0.40s;
+} section#language img.lang:nth-child(5) {
+    animation-delay: 0.60s;
+} section#language img.lang:nth-child(6) {
+    animation-delay: 0.70s;
+} section#language img.lang:nth-child(7) {
+    animation-delay: 0.32s;
+} section#language img.lang:nth-child(8) {
+    animation-delay: 0.80s;
+} section#language img.lang:nth-child(9) {
+    animation-delay: 0.90s;
+} section#language img.lang:nth-child(10) {
+    animation-delay: 1s;
+}
+
+section#language img.active {
+    background: #2643aa;
+    transform: translateY(-10px);
+}
+
+section#language img:hover {
+    outline: 5px solid #2643aa;
+}
+
+section#projects {
+    overflow: hidden;
+    min-height: 5vh;
+    background: #1c1c1e;
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+section#projects div.error {
+    min-height: 10vh;
+    width: 90vw;
+    background: crimson;
+    margin: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+section#projects div.error span.errmsg {
+    color: #fff;
+    font-size: 50px;
+}
+
+section#projects div.project {
+    min-height: 10vh;
+    width: 90vw;
+    background: #2a2a2c;
+    margin: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+section#projects div.project .proj {
+    display: flex;
+    min-width: 45vw;
+    max-width: 45vw;
+    flex-direction: column;
+}
+
+section#projects div.project .proj span {
+    margin: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+section#projects div.project .proj span.name {
+    font-size: calc(50*var(--res));
+    text-decoration: underline;
+}
+
+section#projects div.project .btns {
+    min-width: 45vw;
+    max-width: 45vw;
+    display: flex;
+    flex-direction: column;
+}
+
+section#projects div.project .btns a.btn {
+    font-size: calc(32 * var(--res));
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 20px;
+    min-height: 100px;
+    min-width: 100px;
+    background: linear-gradient(#6a1cbc, #2643aa);
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 0;
+}
+
+section#projects div.project .btns span.btn {
+    font-size: calc(32 * var(--res));
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 20px;
+    min-height: 100px;
+    min-width: 100px;
+    background: radial-gradient(#3a434f, #3e4048);
+    text-decoration: none;
+    color: #313234;
+    cursor: pointer;
+}
+
+.contener {
+    display: flex;
+    flex-direction: row;
+    row-gap: wrap;
+}
+
+.card {
+    min-width: 50px;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #4f4f4f;
+    flex: 1;
+    transition: .3s all ease-in-out;
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(#1024bb, #1e69da);
+} .card:nth-child(1) {
+    background: linear-gradient(#8f048f, #a21eda);
+} .card:nth-child(3) {
+    background: linear-gradient(#1024bb, #8f048f);
+}
+
+.card:hover {
+    flex: 2;
+    background-color: #333333;
+}
+
+
+@keyframes colored {
+    from {
+        color: #247ee5;
+    } 50% {
+        color: #2643aa;
+    } to {
+        color: #6a1cbc;
+    }
+}
+
+@keyframes cursor {
+    from {
+        opacity: 1;
+    } 50% {
+        opacity: 1;
+    } 51% {
+        opacity: 0;
+    } to {
+        opacity: 0;
+    }
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(0);
+    } 25% {
+        transform: translateY(5px);
+    } 50% {
+        transform: translateY(0);
+    } 75% {
+        transform: translateY(-5px);
+    } to {
+        transform: translateY(0);
+    }
+}
